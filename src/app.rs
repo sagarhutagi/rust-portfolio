@@ -1,4 +1,5 @@
 use leptos::prelude::*;
+use leptos_meta::{provide_meta_context, Title};
 use leptos_router::{
     components::{Route, Router, Routes, A},
     hooks::use_params_map,
@@ -169,7 +170,10 @@ fn find_project(id: &str) -> Option<Project> {
 
 #[component]
 pub fn App() -> impl IntoView {
+    provide_meta_context();
+
     view! {
+        <Title text="Sagar Hutagi | Developer & Systems Engineer"/>
         <Router>
             <div class="site">
                 <Header/>
@@ -327,8 +331,10 @@ fn ProjectPage() -> impl IntoView {
                 let id = params.read().get("id").unwrap_or_default();
                 match find_project(&id) {
                     Some(p) => {
+                        let title = format!("{} | Sagar Hutagi", p.title);
                         view! {
                             <div>
+                                <Title text=title/>
                                 <div class="back-nav">
                                     <A href="/" attr:class="back-arrow" attr:aria-label="Back to home">
                                         "←"
