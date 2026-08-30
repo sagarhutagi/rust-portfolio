@@ -1,0 +1,7 @@
+{
+    "rust-analyzer.rustfmt.overrideCommand": [
+        "/home/mars/.cargo/bin/leptosfmt",
+        "--stdin",
+        "--rustfmt"
+    ]
+}
