@@ -1,0 +1,26 @@
+{
+  "name": "Sagar Hutagi | Portfolio",
+  "short_name": "Sagar Hutagi",
+  "description": "Portfolio of Sagar Hutagi — projects, writing, and experiments in software and open source.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#12041d",
+  "theme_color": "#12041d",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

@@ -606,7 +606,7 @@ fn ProjectPage() -> impl IntoView {
                         let canonical_url = format!("https://sagarhutagi.tech/project/{}", p.id);
                         let og_image = p.images.first().copied().unwrap_or("/favicon.svg");
                         let full_image_url = format!("https://sagarhutagi.tech{}", og_image);
-                        let (prev_proj, next_proj) = get_adjacent_projects(&p.id);
+                        let (prev_proj, next_proj) = get_adjacent_projects(p.id);
                         view! {
                             <div>
                                 <Title text=page_title.clone()/>
@@ -637,7 +637,7 @@ fn ProjectPage() -> impl IntoView {
                                 
                                 <div class="project-description" inner_html={p.description}></div>
                                 
-                                {((p.live_url.is_some() || p.code_url.is_some()))
+                                {(p.live_url.is_some() || p.code_url.is_some())
                                     .then(|| view! {
                                         <div class="project-actions">
                                             {p.live_url.map(|url| {
@@ -755,13 +755,21 @@ fn ProjectPage() -> impl IntoView {
 #[component]
 fn NotFound() -> impl IntoView {
     view! {
+        <Title text="Page Not Found | Sagar Hutagi"/>
+        <Meta name="robots" content="noindex, follow"/>
         <section class="project-page">
             <div class="back-nav">
                 <A href="/" attr:class="back-arrow" attr:aria-label="Back to home">
                     "←"
                 </A>
             </div>
-            <h1 style="text-align: center;">"Not Found"</h1>
+            <h1 style="text-align: center;">"Page Not Found"</h1>
+            <p style="text-align: center; color: var(--muted); margin-top: 12px;">
+                "The page you're looking for doesn't exist or has moved."
+            </p>
+            <div style="display: flex; justify-content: center; margin-top: 24px;">
+                <A href="/" attr:class="btn">"Back to Home"</A>
+            </div>
         </section>
     }
 }
