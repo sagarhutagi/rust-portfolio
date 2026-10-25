@@ -463,7 +463,7 @@ fn Home() -> impl IntoView {
                 <p class="tagline">"I go where the rabbit holes lead."</p>
 
                 <p class="intro">
-                    "I build software across web, systems, and open source — usually starting with a simple question and ending somewhere I didn't expect."
+                    "I'm a student and developer based in Bengaluru, spending most of my time building software across web, systems, and open source. From experimenting with Tor hidden services and client-side cryptography to hacking on Linux, Rust, and full-stack web apps, I like diving deep into things to figure out how they actually work under the hood."
                 </p>
 
                 <div class="links">

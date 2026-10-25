@@ -1,6 +1,6 @@
 # Sagar Hutagi
 
-> Student & developer. I go where the rabbit holes lead — building software across web, systems, and open source. Based in Bengaluru, India. Student at PES University.
+> Student & developer based in Bengaluru, building software across web, systems, and open source — from Tor hidden services and cryptography to Linux, Rust, and full-stack web applications. Student at PES University.
 
 - Website: https://sagarhutagi.tech
 - GitHub: https://github.com/sagarhutagi
