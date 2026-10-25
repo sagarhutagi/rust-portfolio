@@ -1,5 +1,5 @@
 use leptos::prelude::*;
-use leptos_meta::{provide_meta_context, Title};
+use leptos_meta::{provide_meta_context, Link, Meta, Title};
 use leptos_router::{
     components::{Route, Router, Routes, A},
     hooks::use_params_map,
@@ -64,12 +64,12 @@ fn projects() -> Vec<Project> {
             code_url: Some("https://github.com/sagarhutagi/tor-chat-web"),
             tags: &["Tor", "Dark Web", "PGP Encryption", "Supabase", "JavaScript"],
             images: &[
-                "/images/PGP%20Encrypted%20Chat%20App/1777299784909.jpeg",
-                "/images/PGP%20Encrypted%20Chat%20App/1777299784982.jpeg",
-                "/images/PGP%20Encrypted%20Chat%20App/1777299785426.jpeg",
-                "/images/PGP%20Encrypted%20Chat%20App/1777299785849.jpeg",
-                "/images/PGP%20Encrypted%20Chat%20App/1777299785934.jpeg",
-                "/images/PGP%20Encrypted%20Chat%20App/1777299787105.jpeg",
+                "/images/PGP%20Encrypted%20Chat%20App/1777299784909.webp",
+                "/images/PGP%20Encrypted%20Chat%20App/1777299784982.webp",
+                "/images/PGP%20Encrypted%20Chat%20App/1777299785426.webp",
+                "/images/PGP%20Encrypted%20Chat%20App/1777299785849.webp",
+                "/images/PGP%20Encrypted%20Chat%20App/1777299785934.webp",
+                "/images/PGP%20Encrypted%20Chat%20App/1777299787105.webp",
             ],
         },
 
@@ -95,13 +95,13 @@ fn projects() -> Vec<Project> {
             code_url: Some("https://github.com/sagarhutagi/blackhole"),
             tags: &["React", "TypeScript", "Supabase", "Tailwind CSS"],
             images: &[
-                "/images/Black%20Hole/1771654373806-n1cotm.png",
-                "/images/Black%20Hole/1771654385387-yarprl.png",
-                "/images/Black%20Hole/1771654391907-u6cu9h.png",
-                "/images/Black%20Hole/1771654399070-ioz2fj.png",
-                "/images/Black%20Hole/1771654409129-zwpnbv.png",
-                "/images/Black%20Hole/1771654436350-0wejnw.png",
-                "/images/Black%20Hole/1771654474900-papx30.png",
+                "/images/Black%20Hole/1771654373806-n1cotm.webp",
+                "/images/Black%20Hole/1771654385387-yarprl.webp",
+                "/images/Black%20Hole/1771654391907-u6cu9h.webp",
+                "/images/Black%20Hole/1771654399070-ioz2fj.webp",
+                "/images/Black%20Hole/1771654409129-zwpnbv.webp",
+                "/images/Black%20Hole/1771654436350-0wejnw.webp",
+                "/images/Black%20Hole/1771654474900-papx30.webp",
             ],
         },
 
@@ -126,15 +126,15 @@ fn projects() -> Vec<Project> {
             code_url: Some("https://github.com/sagarhutagi/ai-code-doctor"),
             tags: &["Python", "AI", "Ollama", "FastAPI"],
             images: &[
-                "/images/AI%20Code%20Doctor/1773744840366-kmcus1.jpeg",
-                "/images/AI%20Code%20Doctor/1773744842814-doykvj.jpeg",
-                "/images/AI%20Code%20Doctor/1773744845082-n0wcoq.jpeg",
-                "/images/AI%20Code%20Doctor/1773744847680-im0a0v.jpeg",
-                "/images/AI%20Code%20Doctor/1773744850597-0slx8t.jpeg",
-                "/images/AI%20Code%20Doctor/1773744870085-nruvv3.jpeg",
-                "/images/AI%20Code%20Doctor/1773744874943-3b8wuq.jpeg",
-                "/images/AI%20Code%20Doctor/1773744879999-wli1t5.jpeg",
-                "/images/AI%20Code%20Doctor/1773744886862-et53tt.jpeg",
+                "/images/AI%20Code%20Doctor/1773744840366-kmcus1.webp",
+                "/images/AI%20Code%20Doctor/1773744842814-doykvj.webp",
+                "/images/AI%20Code%20Doctor/1773744845082-n0wcoq.webp",
+                "/images/AI%20Code%20Doctor/1773744847680-im0a0v.webp",
+                "/images/AI%20Code%20Doctor/1773744850597-0slx8t.webp",
+                "/images/AI%20Code%20Doctor/1773744870085-nruvv3.webp",
+                "/images/AI%20Code%20Doctor/1773744874943-3b8wuq.webp",
+                "/images/AI%20Code%20Doctor/1773744879999-wli1t5.webp",
+                "/images/AI%20Code%20Doctor/1773744886862-et53tt.webp",
             ],
         },
 
@@ -161,13 +161,13 @@ fn projects() -> Vec<Project> {
             code_url: Some("https://github.com/sagarhutagi/pesu-helper-extension"),
             tags: &["JavaScript", "Browser Extension", "PESU Academy"],
             images: &[
-                "/images/PESU%20Helper/1771655197396-wvw2zz.jpg",
-                "/images/PESU%20Helper/1771655199298-as38p7.jpg",
-                "/images/PESU%20Helper/1771655201098-n5mej3.jpg",
-                "/images/PESU%20Helper/1771655203019-6ua7yw.jpg",
-                "/images/PESU%20Helper/1771655222324-dkaw5n.jpg",
-                "/images/PESU%20Helper/1771655229985-cmkkgt.jpg",
-                "/images/PESU%20Helper/1771655248448-flx81o.jpg",
+                "/images/PESU%20Helper/1771655197396-wvw2zz.webp",
+                "/images/PESU%20Helper/1771655199298-as38p7.webp",
+                "/images/PESU%20Helper/1771655201098-n5mej3.webp",
+                "/images/PESU%20Helper/1771655203019-6ua7yw.webp",
+                "/images/PESU%20Helper/1771655222324-dkaw5n.webp",
+                "/images/PESU%20Helper/1771655229985-cmkkgt.webp",
+                "/images/PESU%20Helper/1771655248448-flx81o.webp",
             ],
         },
 
@@ -193,11 +193,11 @@ fn projects() -> Vec<Project> {
             code_url: None,
             tags: &["IoT", "Robotics", "Solar Energy", "Sensors", "Embedded Systems"],
             images: &[
-                "/images/Smart%20Ship/1771736775304-9oyg31.jpg",
-                "/images/Smart%20Ship/1771736790169-42hiwb.jpg",
-                "/images/Smart%20Ship/1771736804546-qwd0v1.jpg",
-                "/images/Smart%20Ship/1771736835523-ndovxf.jpg",
-                "/images/Smart%20Ship/1771736858742-dmwcut.jpg",
+                "/images/Smart%20Ship/1771736775304-9oyg31.webp",
+                "/images/Smart%20Ship/1771736790169-42hiwb.webp",
+                "/images/Smart%20Ship/1771736804546-qwd0v1.webp",
+                "/images/Smart%20Ship/1771736835523-ndovxf.webp",
+                "/images/Smart%20Ship/1771736858742-dmwcut.webp",
             ],
         },
 
@@ -218,11 +218,11 @@ fn projects() -> Vec<Project> {
             code_url: None,
             tags: &["Game Development", "Game Programming", "Level Design"],
             images: &[
-                "/images/9%20Lives/1776928935687.jpeg",
-                "/images/9%20Lives/1776928935761.jpeg",
-                "/images/9%20Lives/1776928936063.jpeg",
-                "/images/9%20Lives/1776928936329.jpeg",
-                "/images/9%20Lives/1776928936677.jpeg",
+                "/images/9%20Lives/1776928935687.webp",
+                "/images/9%20Lives/1776928935761.webp",
+                "/images/9%20Lives/1776928936063.webp",
+                "/images/9%20Lives/1776928936329.webp",
+                "/images/9%20Lives/1776928936677.webp",
             ],
         },
 
@@ -245,10 +245,10 @@ fn projects() -> Vec<Project> {
             code_url: None,
             tags: &["Web Development", "UI Design", "Productivity"],
             images: &[
-                "/images/Notes%20App/1771657347988-vspt6p.png",
-                "/images/Notes%20App/1771657361227-ji23fq.png",
-                "/images/Notes%20App/1771657364352-zslxpp.png",
-                "/images/Notes%20App/1771657366485-zazp5m.png",
+                "/images/Notes%20App/1771657347988-vspt6p.webp",
+                "/images/Notes%20App/1771657361227-ji23fq.webp",
+                "/images/Notes%20App/1771657364352-zslxpp.webp",
+                "/images/Notes%20App/1771657366485-zazp5m.webp",
             ],
         },
     ]
@@ -438,10 +438,23 @@ fn ProjectPage() -> impl IntoView {
                 let id = params.read().get("id").unwrap_or_default();
                 match find_project(&id) {
                     Some(p) => {
-                        let title = format!("{} | Sagar Hutagi", p.title);
+                        let page_title = format!("{} | Sagar Hutagi", p.title);
+                        let canonical_url = format!("https://sagarhutagi.com/project/{}", p.id);
+                        let og_image = p.images.first().copied().unwrap_or("/favicon.svg");
+                        let full_image_url = format!("https://sagarhutagi.com{}", og_image);
                         view! {
                             <div>
-                                <Title text=title/>
+                                <Title text=page_title.clone()/>
+                                <Meta name="description" content=p.summary/>
+                                <Meta property="og:title" content=page_title.clone()/>
+                                <Meta property="og:description" content=p.summary/>
+                                <Meta property="og:url" content=canonical_url.clone()/>
+                                <Meta property="og:image" content=full_image_url.clone()/>
+                                <Meta name="twitter:title" content=page_title/>
+                                <Meta name="twitter:description" content=p.summary/>
+                                <Meta name="twitter:image" content=full_image_url/>
+                                <Link rel="canonical" href=canonical_url/>
+
                                 <div class="back-nav">
                                     <A href="/" attr:class="back-arrow" attr:aria-label="Back to home">
                                         "←"
@@ -495,15 +508,18 @@ fn ProjectPage() -> impl IntoView {
                                         <div class="project-gallery">
                                             {p.images
                                                 .iter()
-                                                .map(|src| {
+                                                .enumerate()
+                                                .map(|(idx, src)| {
                                                     let src_owned = src.to_string();
                                                     let src_click = src_owned.clone();
+                                                    let alt_text = format!("{} screenshot {}", p.title, idx + 1);
                                                     view! {
                                                         <button
                                                             class="gallery-thumb"
                                                             on:click=move |_| set_lightbox.set(Some(src_click.clone()))
+                                                            aria-label=format!("View full size screenshot {} for {}", idx + 1, p.title)
                                                         >
-                                                            <img src=src_owned alt=p.title loading="lazy"/>
+                                                            <img src=src_owned alt=alt_text loading="lazy" decoding="async"/>
                                                         </button>
                                                     }
                                                 })
