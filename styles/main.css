@@ -184,8 +184,8 @@ button {
 .logo-mark {
     flex-shrink: 0;
 
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 19px;
 
     color: var(--foreground);
 
@@ -195,8 +195,8 @@ button {
 }
 
 .nav-name:hover .logo-mark {
-    transform: rotate(45deg);
-    opacity: 0.75;
+    transform: scale(1.08);
+    opacity: 0.85;
 }
 
 .navbar nav {
