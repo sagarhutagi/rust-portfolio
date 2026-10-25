@@ -182,8 +182,8 @@ button {
 .logo-mark {
     flex-shrink: 0;
 
-    width: 28px;
-    height: 24px;
+    width: 42px;
+    height: 36px;
 
     color: var(--foreground);
 
@@ -1101,8 +1101,9 @@ footer {
         gap: 13px;
     }
 
-    .nav-name {
-        font-size: 14px;
+    .logo-mark {
+        width: 36px;
+        height: 31px;
     }
 
     .hero h1 {
