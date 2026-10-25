@@ -385,7 +385,7 @@ pub fn App() -> impl IntoView {
     provide_context(ToastContext(set_toast));
 
     view! {
-        <Title text="Sagar Hutagi | Student & Developer"/>
+        <Title text="Sagar Hutagi | Portfolio"/>
         <Router>
             <div class="site">
                 <Header/>
@@ -463,10 +463,7 @@ fn Home() -> impl IntoView {
                 <p class="tagline">"I go where the rabbit holes lead."</p>
 
                 <p class="intro">
-                    "I'm a developer exploring everything from intelligent
-                    systems to the software that runs beneath them. I build
-                    with AI/ML, Rust, and the web, usually starting with a
-                    simple question and ending somewhere I didn't expect."
+                    "I build software across web, systems, and open source — usually starting with a simple question and ending somewhere I didn't expect."
                 </p>
 
                 <div class="links">
