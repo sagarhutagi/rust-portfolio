@@ -21,4 +21,4 @@ User-agent: CCBot
 Allow: /
 
 # Sitemaps and AI Context
-Sitemap: https://sagarhutagi.com/sitemap.xml
+Sitemap: https://sagarhutagi.tech/sitemap.xml

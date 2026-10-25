@@ -2,7 +2,7 @@
 
 > Student & developer exploring intelligent systems, AI/ML, Rust, and modern web software. Based in Bengaluru, India. Student at PES University.
 
-- Website: https://sagarhutagi.com
+- Website: https://sagarhutagi.tech
 - GitHub: https://github.com/sagarhutagi
 - LinkedIn: https://linkedin.com/in/sagarhutagi
 - Contact: sagarhutagi@gmail.com
@@ -15,7 +15,7 @@
 ## Projects
 
 ### 1. PGP Encrypted Chat App
-- URL: https://sagarhutagi.com/project/encrypted-chat
+- URL: https://sagarhutagi.tech/project/encrypted-chat
 - Code: https://github.com/sagarhutagi/tor-chat-web
 - Description: An end-to-end encrypted messaging application operating over Tor hidden services with client-side PGP encryption.
 - Key Technical Details:
@@ -24,7 +24,7 @@
   - Supabase backend with Row-Level Security handles real-time ciphertext routing and public key distribution without metadata retention.
 
 ### 2. Black Hole
-- URL: https://sagarhutagi.com/project/black-hole
+- URL: https://sagarhutagi.tech/project/black-hole
 - Code: https://github.com/sagarhutagi/blackhole
 - Description: An anonymous real-time campus discussion platform with ephemeral posts and daily purges.
 - Key Technical Details:
@@ -34,7 +34,7 @@
   - Built with React, TypeScript, and Tailwind CSS.
 
 ### 3. AI Code Doctor
-- URL: https://sagarhutagi.com/project/ai-code-doctor
+- URL: https://sagarhutagi.tech/project/ai-code-doctor
 - Code: https://github.com/sagarhutagi/ai-code-doctor
 - Description: A local-first code analysis and diagnostic tool running open-weights models on-device without cloud APIs.
 - Key Technical Details:
@@ -43,7 +43,7 @@
   - Clean web interface for submitting snippets and reviewing optimization recommendations.
 
 ### 4. PESU Helper
-- URL: https://sagarhutagi.com/project/pesu-helper
+- URL: https://sagarhutagi.tech/project/pesu-helper
 - Code: https://github.com/sagarhutagi/pesu-helper-extension
 - Description: A browser extension enhancing the PESU Academy student portal with automated PDF organization and study tracking.
 - Key Technical Details:
@@ -52,7 +52,7 @@
   - Tracks active study time across lecture materials with daily reset logs and course unit syllabus filters.
 
 ### 5. Smart Ship
-- URL: https://sagarhutagi.com/project/smart-ship
+- URL: https://sagarhutagi.tech/project/smart-ship
 - Demo: https://drive.google.com/file/d/1BZz6glL9o3w-IC6s5pwm-dUTCaBAwCi-/view
 - Description: An electric marine vessel prototype designed to eliminate maritime collisions and emissions using automated sensor systems.
 - Key Technical Details:
@@ -63,7 +63,7 @@
   - Functional electromechanical steering mechanism linked to helm inputs.
 
 ### 6. 9 Lives
-- URL: https://sagarhutagi.com/project/9-lives
+- URL: https://sagarhutagi.tech/project/9-lives
 - Description: A 2D puzzle-platformer built in 48 hours for the Delta Time game jam, centered around the theme "Death is not the end."
 - Key Technical Details:
   - Built for Delta Time Game Jam at PES University EC Campus.
@@ -71,7 +71,7 @@
   - Won 1st place in Art and 3rd place overall.
 
 ### 7. Notes App
-- URL: https://sagarhutagi.com/project/notes-app
+- URL: https://sagarhutagi.tech/project/notes-app
 - Description: A subject-categorized study notes publishing platform for sharing Obsidian-authored notes as PDFs with collaborative discussion threads.
 - Key Technical Details:
   - Notes authored locally in Obsidian with Markdown and LaTeX formatting, then published as uniform PDFs.
@@ -81,7 +81,7 @@
 ## Writing & Articles
 
 ### My First FOSS Event: IndiaFOSS ‘26
-- URL: https://sagarhutagi.com/blog/my-first-foss-event-indiafoss-26
+- URL: https://sagarhutagi.tech/blog/my-first-foss-event-indiafoss-26
 - Medium: https://medium.com/@sagarmh6364/my-first-foss-event-indiafoss-26-1271809c0335
 - Published: October 2, 2026
 - Summary: A personal account and reflection on attending IndiaFOSS '26 at NIMHANS Convention Centre in Bengaluru. Covers open-source hardware demonstrations (ChipWhisperer AES key extraction, custom stream decks, Flipper Zero), meeting Kailash Nadh (CTO of Zerodha), and networking with the broader FOSS community.

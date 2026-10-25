@@ -606,9 +606,9 @@ fn ProjectPage() -> impl IntoView {
                 match find_project(&id) {
                     Some(p) => {
                         let page_title = format!("{} | Sagar Hutagi", p.title);
-                        let canonical_url = format!("https://sagarhutagi.com/project/{}", p.id);
+                        let canonical_url = format!("https://sagarhutagi.tech/project/{}", p.id);
                         let og_image = p.images.first().copied().unwrap_or("/favicon.svg");
-                        let full_image_url = format!("https://sagarhutagi.com{}", og_image);
+                        let full_image_url = format!("https://sagarhutagi.tech{}", og_image);
                         let (prev_proj, next_proj) = get_adjacent_projects(&p.id);
                         view! {
                             <div>
@@ -797,8 +797,8 @@ fn BlogPage() -> impl IntoView {
                 match find_blog_post(&id) {
                     Some(b) => {
                         let page_title = format!("{} | Sagar Hutagi", b.title);
-                        let canonical_url = format!("https://sagarhutagi.com/blog/{}", b.id);
-                        let og_image = "https://sagarhutagi.com/images/blogs/indiafoss-26/team_kailash.webp";
+                        let canonical_url = format!("https://sagarhutagi.tech/blog/{}", b.id);
+                        let og_image = "https://sagarhutagi.tech/images/blogs/indiafoss-26/team_kailash.webp";
                         view! {
                             <div>
                                 <Title text=page_title.clone()/>
