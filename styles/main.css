@@ -171,21 +171,19 @@ button {
 .nav-name {
     display: inline-flex;
     align-items: center;
-    gap: 9px;
-    font-size: 22px; 
-    font-weight: 600;
+    padding: 6px 0;
     transition: opacity 0.18s ease;
 }
 
 .nav-name:hover {
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 .logo-mark {
     flex-shrink: 0;
 
-    width: 22px;
-    height: 19px;
+    width: 28px;
+    height: 24px;
 
     color: var(--foreground);
 
@@ -196,7 +194,7 @@ button {
 
 .nav-name:hover .logo-mark {
     transform: scale(1.08);
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 .navbar nav {
