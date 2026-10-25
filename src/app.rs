@@ -385,7 +385,7 @@ pub fn App() -> impl IntoView {
     provide_context(ToastContext(set_toast));
 
     view! {
-        <Title text="Sagar Hutagi | Developer & Systems Engineer"/>
+        <Title text="Sagar Hutagi | Student & Developer"/>
         <Router>
             <div class="site">
                 <Header/>

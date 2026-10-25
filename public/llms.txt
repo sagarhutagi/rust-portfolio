@@ -1,6 +1,6 @@
 # Sagar Hutagi
 
-> Developer exploring intelligent systems, AI/ML, Rust, and systems-level software. Based in Bengaluru, India. Alum of PES University.
+> Student & developer exploring intelligent systems, AI/ML, Rust, and modern web software. Based in Bengaluru, India. Student at PES University.
 
 - Website: https://sagarhutagi.com
 - GitHub: https://github.com/sagarhutagi
