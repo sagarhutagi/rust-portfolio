@@ -163,14 +163,29 @@ button {
    NAVIGATION
 ───────────────────────────── */
 
+.navbar-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: rgba(27, 7, 40, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+}
+
 .navbar {
+    width: min(1300px, calc(100% - 120px));
+    margin-inline: auto;
     min-height: 72px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
 
-    border-bottom: 1px solid transparent;
+section[id] {
+    scroll-margin-top: 84px;
 }
 
 .nav-name {
@@ -882,7 +897,8 @@ footer {
 ───────────────────────────── */
 
 @media (min-width: 1440px) {
-    .site {
+    .site,
+    .navbar {
         width: min(1380px, calc(100% - 160px));
     }
 
@@ -897,7 +913,8 @@ footer {
 ───────────────────────────── */
 
 @media (max-width: 1024px) {
-    .site {
+    .site,
+    .navbar {
         width: calc(100% - 72px);
     }
 
@@ -925,12 +942,17 @@ footer {
 ───────────────────────────── */
 
 @media (max-width: 700px) {
-    .site {
+    .site,
+    .navbar {
         width: calc(100% - 40px);
     }
 
     .navbar {
         min-height: 60px;
+    }
+
+    section[id] {
+        scroll-margin-top: 72px;
     }
 
     .navbar nav {
@@ -1098,7 +1120,8 @@ footer {
 ───────────────────────────── */
 
 @media (max-width: 420px) {
-    .site {
+    .site,
+    .navbar {
         width: calc(100% - 28px);
     }
 
@@ -1147,62 +1170,96 @@ footer {
 
 .toast-wrapper {
     position: fixed;
-    bottom: 28px;
+    bottom: max(24px, env(safe-area-inset-bottom, 24px));
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
     pointer-events: none;
+    max-width: min(540px, calc(100vw - 32px));
+    width: max-content;
     animation: toastSlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .toast-card {
     pointer-events: auto;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 20px;
-    background: #250b36;
+    padding: 12px 18px;
+    background: #1c0627;
     color: var(--foreground);
     border: 1px solid rgba(199, 197, 197, 0.22);
-    border-radius: 9999px;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+    border-radius: 12px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.25);
     font-size: 14px;
     font-weight: 500;
-    max-width: 90vw;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
-.toast-icon {
-    font-size: 15px;
-    color: var(--muted);
+.toast-icon-svg {
     flex-shrink: 0;
+    color: var(--accent);
 }
 
 .toast-text {
-    line-height: 1.4;
+    line-height: 1.45;
     color: var(--foreground);
+    font-size: 14px;
 }
 
 .toast-close {
     background: transparent;
     border: none;
     color: var(--muted);
-    font-size: 13px;
     cursor: pointer;
-    padding: 3px 6px;
-    border-radius: 4px;
+    padding: 6px;
+    border-radius: 6px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     transition: color 0.15s ease, background 0.15s ease;
     flex-shrink: 0;
-    margin-left: 4px;
+    margin-left: 6px;
 }
 
 .toast-close:hover {
     color: var(--foreground);
     background: var(--hover-bg);
+}
+
+@media (max-width: 600px) {
+    .toast-wrapper {
+        width: calc(100vw - 28px);
+        max-width: 440px;
+        bottom: max(16px, env(safe-area-inset-bottom, 16px));
+    }
+
+    .toast-card {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 14px;
+        gap: 10px;
+        align-items: flex-start;
+        border-radius: 10px;
+    }
+
+    .toast-icon-svg {
+        margin-top: 2px;
+    }
+
+    .toast-text {
+        font-size: 13.5px;
+        line-height: 1.4;
+        flex: 1;
+    }
+
+    .toast-close {
+        margin-top: -2px;
+        margin-right: -4px;
+        margin-left: 2px;
+        padding: 6px;
+    }
 }
 
 @keyframes toastSlideUp {
