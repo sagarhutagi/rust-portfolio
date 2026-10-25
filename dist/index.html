@@ -32,50 +32,125 @@
     <!-- Google Search Console Verification (Replace content with your verification code if using meta tag method) -->
     <!-- <meta name="google-site-verification" content="YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE" /> -->
 
-    <!-- Structured Data (JSON-LD) for Search Engines -->
+    <!-- Structured Data (JSON-LD) for Search Engines & AI Agents -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Sagar Hutagi",
-      "url": "https://sagarhutagi.com",
-      "sameAs": [
-        "https://github.com/sagarhutagi",
-        "https://linkedin.com/in/sagarhutagi"
-      ],
-      "jobTitle": "Developer & Systems Engineer",
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "PES University"
-      },
-      "knowsAbout": [
-        "Rust",
-        "AI/ML",
-        "Full-Stack Development",
-        "TypeScript",
-        "Python",
-        "FastAPI",
-        "Systems Programming",
-        "Tor",
-        "Cryptography"
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://sagarhutagi.com/#person",
+          "name": "Sagar Hutagi",
+          "url": "https://sagarhutagi.com",
+          "image": "https://sagarhutagi.com/favicon.svg",
+          "sameAs": [
+            "https://github.com/sagarhutagi",
+            "https://linkedin.com/in/sagarhutagi"
+          ],
+          "jobTitle": "Developer & Systems Engineer",
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "PES University"
+          },
+          "knowsAbout": [
+            "Rust",
+            "WebAssembly",
+            "AI/ML",
+            "Local LLMs (Ollama)",
+            "Python",
+            "FastAPI",
+            "TypeScript",
+            "React",
+            "Supabase",
+            "Systems Programming",
+            "Tor Hidden Services",
+            "Cryptography (PGP)"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://sagarhutagi.com/#website",
+          "url": "https://sagarhutagi.com/",
+          "name": "Sagar Hutagi Portfolio",
+          "description": "Portfolio of Sagar Hutagi — Developer exploring intelligent systems, AI/ML, Rust, and modern web applications.",
+          "author": {
+            "@id": "https://sagarhutagi.com/#person"
+          }
+        },
+        {
+          "@type": "ItemList",
+          "name": "Featured Projects by Sagar Hutagi",
+          "itemListElement": [
+            {
+              "@type": "SoftwareApplication",
+              "position": 1,
+              "name": "PGP Encrypted Chat App",
+              "url": "https://sagarhutagi.com/project/encrypted-chat",
+              "description": "An end-to-end encrypted messaging application operating over Tor hidden services with client-side PGP encryption."
+            },
+            {
+              "@type": "SoftwareApplication",
+              "position": 2,
+              "name": "Black Hole",
+              "url": "https://sagarhutagi.com/project/black-hole",
+              "description": "An anonymous real-time campus social platform with ephemeral posts and daily midnight purges."
+            },
+            {
+              "@type": "SoftwareApplication",
+              "position": 3,
+              "name": "AI Code Doctor",
+              "url": "https://sagarhutagi.com/project/ai-code-doctor",
+              "description": "A local-first code analysis tool running language models on-device without cloud APIs."
+            },
+            {
+              "@type": "SoftwareApplication",
+              "position": 4,
+              "name": "PESU Helper",
+              "url": "https://sagarhutagi.com/project/pesu-helper",
+              "description": "A browser extension enhancing the PESU Academy portal with automated PDF organization and study tracking."
+            },
+            {
+              "@type": "CreativeWork",
+              "position": 5,
+              "name": "Smart Ship",
+              "url": "https://sagarhutagi.com/project/smart-ship",
+              "description": "An electric marine vessel prototype with automated obstacle avoidance, moisture sensing, and solar charging."
+            },
+            {
+              "@type": "SoftwareApplication",
+              "position": 6,
+              "name": "9 Lives",
+              "url": "https://sagarhutagi.com/project/9-lives",
+              "description": "A game jam puzzle-platformer where sacrificing lives unlocks abilities to solve levels."
+            },
+            {
+              "@type": "SoftwareApplication",
+              "position": 7,
+              "name": "Notes App",
+              "url": "https://sagarhutagi.com/project/notes-app",
+              "description": "A subject-categorized study notes publishing platform for Obsidian-authored notes as PDFs with discussion threads."
+            }
+          ]
+        }
       ]
     }
     </script>
 
     <!-- Trunk Asset Directives -->
     <link rel="icon" href="/favicon-9147abeeb3002d69.svg" integrity="sha384-94j23gs0w5OIkotUbM3yBebk+mF1Bls1eDvdHZXFG6iExXthiids2Taciv0k51Rf"/>
-    <link rel="stylesheet" href="/main-b1522a74e72dc6dd.css" integrity="sha384-0ILseT9DGiassUfwqBuVTLNd28l26rg0KcB7EgwjBkHKyaeWYRZksLbDzyXkBwRL"/>
+    <link rel="stylesheet" href="/main-2f86973621da2a4b.css" integrity="sha384-b/7+1gArc/zkqStOtUCYuY5w+A3ztUUkoXP5HvTJq6o1WCe2IwUv8YVQ/XB/JF56"/>
     
     
     
     
-<link rel="modulepreload" href="/portfolio-bea8de96bf6c8e6f.js" crossorigin="anonymous" integrity="sha384-3/9PxPXGF8oJekLiN3d9ptwi35vC9IlA4zD4IoVnAXXZzyCzAJmYbARSUmfliLEd"><link rel="preload" href="/portfolio-11255a76697f4534_bg.wasm" crossorigin="anonymous" integrity="sha384-w8y4T/0D/eHIE+sLymJOpgtYrGsU8CjuFQ7OKjuGyEAcfahA5SRy1n48HxSNvRCj" as="fetch" type="application/wasm"></head>
+    
+<link rel="modulepreload" href="/portfolio-67f9409f48a4545a.js" crossorigin="anonymous" integrity="sha384-z4OAwfTC9aaAottFh+tXr1Fi+KHVkxsGw0Xxrv38toiEiwrKMArIo7vxNeg+wiym"><link rel="preload" href="/portfolio-d832a914146c0894_bg.wasm" crossorigin="anonymous" integrity="sha384-CJFBU1p6+LMBd6/G0dBr7mp8tACbt+innPz/cPkOHdy0f1kuS4W5JitSEIOrl+Gu" as="fetch" type="application/wasm"></head>
 
 <body>
 
 <script type="module">
-import init, * as bindings from '/portfolio-bea8de96bf6c8e6f.js';
-const wasm = await init({ module_or_path: '/portfolio-11255a76697f4534_bg.wasm' });
+import init, * as bindings from '/portfolio-67f9409f48a4545a.js';
+const wasm = await init({ module_or_path: '/portfolio-d832a914146c0894_bg.wasm' });
 
 
 window.wasmBindings = bindings;

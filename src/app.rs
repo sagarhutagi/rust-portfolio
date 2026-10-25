@@ -229,21 +229,23 @@ fn projects() -> Vec<Project> {
         Project {
             id: "notes-app",
             title: "Notes App",
-            summary: "A clean note-taking web application for organizing, tagging, and searching personal notes.",
+            summary: "A subject-categorized study notes platform for publishing Obsidian-authored notes as PDFs with discussion sections.",
             description: r#"
-<p>A lightweight web application for creating, managing, and categorizing personal notes and documentation.</p>
+<p>A web platform built to organize and publish study notes. Notes were authored locally in Obsidian, exported and uploaded as PDFs, organized by subjects, and included interactive discussion threads.</p>
+
+<h3>Obsidian Workflow</h3>
+<p>Notes were written and maintained in Obsidian with Markdown and formatting, then uploaded to the platform as readable PDFs for students to access across devices.</p>
 
 <h3>Features</h3>
 <ul style="margin-left: 20px; margin-bottom: 16px;">
-    <li>Clean note editor with fast text entry and updating.</li>
-    <li>Tag-based categorization to organize notes across subjects and projects.</li>
-    <li>Chronological view and keyword search for quick retrieval.</li>
-    <li>Export options for saving notes locally.</li>
+    <li>Subject Categorization: Notes organized cleanly by academic subjects for streamlined access.</li>
+    <li>Embedded PDF Viewing: View notes directly in-browser without having to download files first.</li>
+    <li>Comment Sections: Integrated discussion area beneath each note for asking questions, sharing feedback, and collaborating with peers.</li>
 </ul>
             "#,
             live_url: None,
             code_url: None,
-            tags: &["Web Development", "UI Design", "Productivity"],
+            tags: &["Web Development", "Obsidian", "PDF", "Education"],
             images: &[
                 "/images/Notes%20App/1771657347988-vspt6p.webp",
                 "/images/Notes%20App/1771657361227-ji23fq.webp",
@@ -256,6 +258,25 @@ fn projects() -> Vec<Project> {
 
 fn find_project(id: &str) -> Option<Project> {
     projects().into_iter().find(|p| p.id == id)
+}
+
+fn get_adjacent_projects(id: &str) -> (Option<Project>, Option<Project>) {
+    let list = projects();
+    if let Some(pos) = list.iter().position(|p| p.id == id) {
+        let prev = if pos > 0 {
+            Some(list[pos - 1].clone())
+        } else {
+            None
+        };
+        let next = if pos + 1 < list.len() {
+            Some(list[pos + 1].clone())
+        } else {
+            None
+        };
+        (prev, next)
+    } else {
+        (None, None)
+    }
 }
 
 // ─────────────────────────────
@@ -442,6 +463,7 @@ fn ProjectPage() -> impl IntoView {
                         let canonical_url = format!("https://sagarhutagi.com/project/{}", p.id);
                         let og_image = p.images.first().copied().unwrap_or("/favicon.svg");
                         let full_image_url = format!("https://sagarhutagi.com{}", og_image);
+                        let (prev_proj, next_proj) = get_adjacent_projects(&p.id);
                         view! {
                             <div>
                                 <Title text=page_title.clone()/>
@@ -526,6 +548,30 @@ fn ProjectPage() -> impl IntoView {
                                                 .collect_view()}
                                         </div>
                                     })}
+
+                                <nav class="project-pagination" aria-label="Project navigation">
+                                    <div class="pagination-prev">
+                                        {prev_proj.map(|prev| view! {
+                                            <A href=format!("/project/{}", prev.id) attr:class="pagination-link prev">
+                                                <span class="pagination-label">"← Previous"</span>
+                                                <span class="pagination-title">{prev.title}</span>
+                                            </A>
+                                        })}
+                                    </div>
+                                    <div class="pagination-all">
+                                        <A href="/#work" attr:class="pagination-all-link">
+                                            "All Projects"
+                                        </A>
+                                    </div>
+                                    <div class="pagination-next">
+                                        {next_proj.map(|next| view! {
+                                            <A href=format!("/project/{}", next.id) attr:class="pagination-link next">
+                                                <span class="pagination-label">"Next →"</span>
+                                                <span class="pagination-title">{next.title}</span>
+                                            </A>
+                                        })}
+                                    </div>
+                                </nav>
                             </div>
                         }
                             .into_any()

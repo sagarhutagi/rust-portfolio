@@ -1,0 +1,79 @@
+# Sagar Hutagi
+
+> Developer exploring intelligent systems, AI/ML, Rust, and systems-level software. Based in Bengaluru, India. Alum of PES University.
+
+- Website: https://sagarhutagi.com
+- GitHub: https://github.com/sagarhutagi
+- LinkedIn: https://linkedin.com/in/sagarhutagi
+- Contact: sagarhutagi@gmail.com
+
+## Core Skills & Expertise
+- Languages: Rust, Python, TypeScript, JavaScript, SQL
+- Technologies: AI/ML, Local LLM Inference (Ollama), FastAPI, React, Leptos (WASM), Supabase, PostgreSQL
+- Systems & Networking: Linux, Tor Hidden Services, Cryptography (PGP/GPG), Embedded Systems / IoT, Browser Extensions
+
+## Projects
+
+### 1. PGP Encrypted Chat App
+- URL: https://sagarhutagi.com/project/encrypted-chat
+- Code: https://github.com/sagarhutagi/tor-chat-web
+- Description: An end-to-end encrypted messaging application operating over Tor hidden services with client-side PGP encryption.
+- Key Technical Details:
+  - Hosted locally as a Tor hidden service with a custom vanity v3 .onion address generated using mkp224o (sagarh prefix).
+  - Client-side encryption via OpenPGP.js ensures messages are encrypted before transmission; private keys never leave local storage.
+  - Supabase backend with Row-Level Security handles real-time ciphertext routing and public key distribution without metadata retention.
+
+### 2. Black Hole
+- URL: https://sagarhutagi.com/project/black-hole
+- Code: https://github.com/sagarhutagi/blackhole
+- Description: An anonymous real-time campus discussion platform with ephemeral posts and daily purges.
+- Key Technical Details:
+  - Real-time updates, presence indicators, and emoji reactions powered by Supabase Realtime and PostgreSQL.
+  - Generates randomized anonymous handles per session to center discussion around content.
+  - Daily purge routine permanently deletes inactive posts at midnight IST for privacy and ephemerality.
+  - Built with React, TypeScript, and Tailwind CSS.
+
+### 3. AI Code Doctor
+- URL: https://sagarhutagi.com/project/ai-code-doctor
+- Code: https://github.com/sagarhutagi/ai-code-doctor
+- Description: A local-first code analysis and diagnostic tool running open-weights models on-device without cloud APIs.
+- Key Technical Details:
+  - Uses Ollama for on-device inference, ensuring sensitive source code remains private and offline-capable.
+  - FastAPI backend interfaces with local LLMs, handling prompt pipelines and code linting diagnostics.
+  - Clean web interface for submitting snippets and reviewing optimization recommendations.
+
+### 4. PESU Helper
+- URL: https://sagarhutagi.com/project/pesu-helper
+- Code: https://github.com/sagarhutagi/pesu-helper-extension
+- Description: A browser extension enhancing the PESU Academy student portal with automated PDF organization and study tracking.
+- Key Technical Details:
+  - Injects native PDF viewer controls directly into the university portal iframe for one-click downloading and tab viewing.
+  - Automatically names downloaded course files according to specific lecture topics and course units.
+  - Tracks active study time across lecture materials with daily reset logs and course unit syllabus filters.
+
+### 5. Smart Ship
+- URL: https://sagarhutagi.com/project/smart-ship
+- Demo: https://drive.google.com/file/d/1BZz6glL9o3w-IC6s5pwm-dUTCaBAwCi-/view
+- Description: An electric marine vessel prototype designed to eliminate maritime collisions and emissions using automated sensor systems.
+- Key Technical Details:
+  - 100% electric propulsion with high-efficiency onboard solar panels capable of charging the battery bank within an hour.
+  - Ultrasonic sensor array scans for obstacles and immediately cuts propulsion to prevent collisions.
+  - Moisture-sensing bilge pump automatically triggers when water ingress is detected.
+  - Autonomous LDR ambient lighting switches navigation lights on at dusk and off at dawn.
+  - Functional electromechanical steering mechanism linked to helm inputs.
+
+### 6. 9 Lives
+- URL: https://sagarhutagi.com/project/9-lives
+- Description: A 2D puzzle-platformer built in 48 hours for the Delta Time game jam, centered around the theme "Death is not the end."
+- Key Technical Details:
+  - Built for Delta Time Game Jam at PES University EC Campus.
+  - Death acts as a progression mechanic: sacrificing lives unlocks environmental modifiers (gravity alterations, enhanced vision) to bypass obstacles.
+  - Won 1st place in Art and 3rd place overall.
+
+### 7. Notes App
+- URL: https://sagarhutagi.com/project/notes-app
+- Description: A subject-categorized study notes publishing platform for sharing Obsidian-authored notes as PDFs with collaborative discussion threads.
+- Key Technical Details:
+  - Notes authored locally in Obsidian with Markdown and LaTeX formatting, then published as uniform PDFs.
+  - Course-level subject categorization for systematic syllabus tracking.
+  - Built-in PDF reader with an interactive comment and discussion section at the bottom of each document for student collaboration.
