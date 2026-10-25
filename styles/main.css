@@ -1137,6 +1137,213 @@ footer {
 
 
 /* ─────────────────────────────
+   TOAST NOTIFICATION
+───────────────────────────── */
+
+.toast-wrapper {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    pointer-events: none;
+    animation: toastSlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-card {
+    pointer-events: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: #250b36;
+    color: var(--foreground);
+    border: 1px solid rgba(199, 197, 197, 0.22);
+    border-radius: 9999px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+    font-size: 14px;
+    font-weight: 500;
+    max-width: 90vw;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.toast-icon {
+    font-size: 15px;
+    color: var(--muted);
+    flex-shrink: 0;
+}
+
+.toast-text {
+    line-height: 1.4;
+    color: var(--foreground);
+}
+
+.toast-close {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-size: 13px;
+    cursor: pointer;
+    padding: 3px 6px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s ease, background 0.15s ease;
+    flex-shrink: 0;
+    margin-left: 4px;
+}
+
+.toast-close:hover {
+    color: var(--foreground);
+    background: var(--hover-bg);
+}
+
+@keyframes toastSlideUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 16px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1);
+    }
+}
+
+/* ─────────────────────────────
+   WRITING / BLOG STYLES
+───────────────────────────── */
+
+.project-header-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.project-meta-date {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+    flex-shrink: 0;
+}
+
+.blog-header {
+    max-width: 900px;
+    margin-inline: auto;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.blog-meta-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.blog-bullet {
+    opacity: 0.6;
+}
+
+.blog-callout {
+    margin-top: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    padding: 6px 14px;
+    background: var(--hover-bg);
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+}
+
+.blog-callout-link {
+    color: var(--foreground);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.15s ease;
+}
+
+.blog-callout-link:hover {
+    opacity: 0.75;
+}
+
+.blog-body {
+    max-width: 680px;
+    margin-inline: auto;
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.blog-body h3 {
+    margin-top: 36px;
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+.blog-figure {
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blog-figure img {
+    max-width: 100%;
+    max-height: 520px;
+    width: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    display: block;
+}
+
+.blog-figure figcaption {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+    font-style: italic;
+}
+
+.blog-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+}
+
+.blog-gallery-grid .blog-figure {
+    margin: 0;
+}
+
+.blog-gallery-grid .blog-figure img {
+    max-height: 340px;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 600px) {
+    .project-header-row {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .blog-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ─────────────────────────────
    REDUCED MOTION
 ───────────────────────────── */
 

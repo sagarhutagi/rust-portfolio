@@ -25,6 +25,100 @@ const _RESUME_URL: &str =
 // is served at "/images/foo.png". Fill these in per project.
 // ─────────────────────────────
 
+
+#[derive(Clone, Copy)]
+pub struct ToastContext(pub WriteSignal<Option<String>>);
+
+impl ToastContext {
+    pub fn show(&self, msg: &str) {
+        let set_toast = self.0;
+        set_toast.set(Some(msg.to_string()));
+        leptos::prelude::set_timeout(
+            move || {
+                set_toast.set(None);
+            },
+            std::time::Duration::from_millis(3800),
+        );
+    }
+}
+
+// ─────────────────────────────
+// BLOG POSTS
+// ─────────────────────────────
+
+#[derive(Clone)]
+pub struct BlogPost {
+    pub id: &'static str,
+    pub title: &'static str,
+    pub date: &'static str,
+    pub read_time: &'static str,
+    pub summary: &'static str,
+    pub medium_url: &'static str,
+    pub tags: &'static [&'static str],
+    pub content_html: &'static str,
+}
+
+pub fn blog_posts() -> Vec<BlogPost> {
+    vec![
+        BlogPost {
+            id: "my-first-foss-event-indiafoss-26",
+            title: "My First FOSS Event: IndiaFOSS ‘26",
+            date: "Oct 2, 2026",
+            read_time: "3 min read",
+            summary: "Reflections on attending IndiaFOSS '26 at NIMHANS Convention Centre: open-source hardware hacks, side-channel AES key extraction with ChipWhisperer, and meeting Kailash Nadh.",
+            medium_url: "https://medium.com/@sagarmh6364/my-first-foss-event-indiafoss-26-1271809c0335",
+            tags: &["FOSS", "Linux", "Hardware Security", "Community"],
+            content_html: r#"
+<p>I’ve been using Linux and Open Source Software for years now and I love ‘Distro Hopping’. Since I’m a student I can’t always afford proprietary software from the pocket money I get. I always try to find the free alternative to paid software. That’s why loved the concept of FOSS from the start.</p>
+
+<p>I am also in a college community called OSIRIS at PES University which has really cool people who also love Open Source. And they had planned to attend this event together and were discussing it on the official WhatsApp group. That’s how I got to know about the event and purchased a ticket.</p>
+
+<p>Since it was my first Tech/FOSS event I barely knew anything. My plan was simple — attend the talks in the domains that I’m interested in and talk to as many people as possible. <em>(Spoiler: Everything went as planned)</em></p>
+
+<figure class="blog-figure">
+    <img src="/images/blogs/indiafoss-26/inauguration.webp" alt="India FOSS ’26 Inauguration" loading="lazy" decoding="async" />
+    <figcaption>India FOSS ’26 Inauguration</figcaption>
+</figure>
+
+<p>The event was 2 days long (Sept 26th and 27th) from 9am to 5pm. It featured talks from prominent people and there were many hardware and software stalls in the venue.</p>
+
+<div class="blog-gallery-grid">
+    <figure class="blog-figure">
+        <img src="/images/blogs/indiafoss-26/scanner.webp" alt="Document scanner" loading="lazy" decoding="async" />
+        <figcaption>Document scanner</figcaption>
+    </figure>
+    <figure class="blog-figure">
+        <img src="/images/blogs/indiafoss-26/streamdeck.webp" alt="A custom built stream deck" loading="lazy" decoding="async" />
+        <figcaption>A custom built stream deck</figcaption>
+    </figure>
+    <figure class="blog-figure">
+        <img src="/images/blogs/indiafoss-26/flipper.webp" alt="Flipper Zero" loading="lazy" decoding="async" />
+        <figcaption>Flipper Zero</figcaption>
+    </figure>
+</div>
+
+<h3>Extracting AES Keys from Embedded Devices</h3>
+<p>One of the talks that caught my attention was <strong>‘Extracting AES Keys from Embedded Devices Using Open Source Hardware’</strong>. I got to learn how a processor’s power consumption changes depending on the operations it performs and how we can capture that information using a device called <strong>ChipWhisperer</strong> and extract the exact <strong>256-bit AES Key</strong> which can be used to decrypt the encrypted data. The demonstration was really fun.</p>
+
+<h3>Meeting Industry Leaders & Open Source Devs</h3>
+<p>I also got to meet <strong>Kailash Nadh, the CTO of Zerodha</strong>, and had a chance to talk to him in person which was really cool. I talked to people who never went to college and bagged good positions in their career, the developer of <strong>EndeavourOS</strong>, and people who worked at quant companies, Cloudflare, KDE, and many more.</p>
+
+<figure class="blog-figure">
+    <img src="/images/blogs/indiafoss-26/team_kailash.webp" alt="Picture of our team with Kailash Nadh" loading="lazy" decoding="async" />
+    <figcaption>Picture of our team with Kailash Nadh (CTO, Zerodha)</figcaption>
+</figure>
+
+<h3>Key Takeaways</h3>
+<p>Overall, the event was very interesting and informative. I learnt about a lot of stuff, connected with many, and some of them also guided me on how to get better at what I’m doing. The people there were very approachable. It was the BEST.</p>
+"#,
+        }
+    ]
+}
+
+pub fn find_blog_post(id: &str) -> Option<BlogPost> {
+    blog_posts().into_iter().find(|b| b.id == id)
+}
+
 #[derive(Clone)]
 pub struct Project {
     pub id: &'static str,
@@ -287,6 +381,9 @@ fn get_adjacent_projects(id: &str) -> (Option<Project>, Option<Project>) {
 pub fn App() -> impl IntoView {
     provide_meta_context();
 
+    let (toast, set_toast) = signal::<Option<String>>(None);
+    provide_context(ToastContext(set_toast));
+
     view! {
         <Title text="Sagar Hutagi | Developer & Systems Engineer"/>
         <Router>
@@ -299,11 +396,34 @@ pub fn App() -> impl IntoView {
                             path=(StaticSegment("project"), ParamSegment("id"))
                             view=ProjectPage
                         />
+                        <Route
+                            path=(StaticSegment("blog"), ParamSegment("id"))
+                            view=BlogPage
+                        />
                     </Routes>
                 </main>
                 <Footer/>
             </div>
         </Router>
+
+        {move || toast.get().map(|msg| {
+            view! {
+                <div class="toast-wrapper" role="status" aria-live="polite">
+                    <div class="toast-card">
+                        <span class="toast-icon">"ℹ"</span>
+                        <span class="toast-text">{msg}</span>
+                        <button
+                            type="button"
+                            class="toast-close"
+                            aria-label="Close notification"
+                            on:click=move |_| set_toast.set(None)
+                        >
+                            "✕"
+                        </button>
+                    </div>
+                </div>
+            }
+        })}
     }
 }
 
@@ -319,6 +439,7 @@ fn Header() -> impl IntoView {
 
             <nav>
                 <a href="/#work">"Work"</a>
+                <a href="/#writing">"Writing"</a>
                 <a href="/#contact">"Contact"</a>
             </nav>
         </header>
@@ -331,6 +452,8 @@ fn Header() -> impl IntoView {
 
 #[component]
 fn Home() -> impl IntoView {
+    let toast = use_context::<ToastContext>();
+
     view! {
         <section id="home" class="hero">
             <p class="hero-greeting">"Sup, I'm"</p>
@@ -359,8 +482,8 @@ fn Home() -> impl IntoView {
                         href="#"
                         on:click=move |ev| {
                             ev.prevent_default();
-                            if let Some(win) = web_sys::window() {
-                                let _ = win.alert_with_message("Resume is temporarily removed for privacy reasons.");
+                            if let Some(t) = toast {
+                                t.show("Resume is temporarily removed for privacy reasons.");
                             }
                         }
                         class="btn swap-btn"
@@ -398,6 +521,31 @@ fn Home() -> impl IntoView {
             </div>
         </section>
 
+        <section id="writing" class="work">
+            <div class="section-title">"Writing"</div>
+
+            <div class="projects">
+                {blog_posts()
+                    .into_iter()
+                    .map(|b| {
+                        let href = format!("/blog/{}", b.id);
+                        view! {
+                            <A href=href attr:class="project">
+                                <div class="project-header-row">
+                                    <h2>{b.title}</h2>
+                                    <span class="project-meta-date">{b.date}</span>
+                                </div>
+                                <p>{b.summary}</p>
+                                <div class="project-tags">
+                                    {b.tags.iter().map(|t| view! { <span class="tag">{*t}</span> }).collect_view()}
+                                </div>
+                            </A>
+                        }
+                    })
+                    .collect_view()}
+            </div>
+        </section>
+
         <section class="currently">
             <div class="section-title">"Currently"</div>
             <p class="currently-text">
@@ -428,8 +576,8 @@ fn Home() -> impl IntoView {
                     href="#"
                     on:click=move |ev| {
                         ev.prevent_default();
-                        if let Some(win) = web_sys::window() {
-                            let _ = win.alert_with_message("Resume is temporarily removed for privacy reasons.");
+                        if let Some(t) = toast {
+                            t.show("Resume is temporarily removed for privacy reasons.");
                         }
                     }
                     class="contact-row"
@@ -632,5 +780,87 @@ fn Footer() -> impl IntoView {
             <span>"Sagar Hutagi © 2026"</span>
             <span class="footer-note">"Built with Rust + Leptos"</span>
         </footer>
+    }
+}
+// ─────────────────────────────
+// BLOG PAGE
+// ─────────────────────────────
+
+#[component]
+fn BlogPage() -> impl IntoView {
+    let params = use_params_map();
+
+    view! {
+        <section class="project-page blog-page">
+            {move || {
+                let id = params.read().get("id").unwrap_or_default();
+                match find_blog_post(&id) {
+                    Some(b) => {
+                        let page_title = format!("{} | Sagar Hutagi", b.title);
+                        let canonical_url = format!("https://sagarhutagi.com/blog/{}", b.id);
+                        let og_image = "https://sagarhutagi.com/images/blogs/indiafoss-26/team_kailash.webp";
+                        view! {
+                            <div>
+                                <Title text=page_title.clone()/>
+                                <Meta name="description" content=b.summary/>
+                                <Meta property="og:title" content=page_title.clone()/>
+                                <Meta property="og:description" content=b.summary/>
+                                <Meta property="og:url" content=canonical_url.clone()/>
+                                <Meta property="og:image" content=og_image/>
+                                <Meta property="og:type" content="article"/>
+                                <Meta name="twitter:title" content=page_title/>
+                                <Meta name="twitter:description" content=b.summary/>
+                                <Meta name="twitter:image" content=og_image/>
+                                <Link rel="canonical" href=canonical_url/>
+
+                                <div class="back-nav">
+                                    <A href="/#writing" attr:class="back-arrow" attr:aria-label="Back to writing">
+                                        "←"
+                                    </A>
+                                </div>
+
+                                <div class="blog-header">
+                                    <div class="blog-meta-top">
+                                        <span class="blog-date">{b.date}</span>
+                                        <span class="blog-bullet">"•"</span>
+                                        <span class="blog-read-time">{b.read_time}</span>
+                                    </div>
+
+                                    <h1>{b.title}</h1>
+
+                                    <div class="project-tags center-tags">
+                                        {b.tags.iter().map(|t| view! { <span class="tag">{*t}</span> }).collect_view()}
+                                    </div>
+
+                                    <div class="blog-callout">
+                                        <span>"Originally published on Medium"</span>
+                                        <a href=b.medium_url target="_blank" rel="noopener noreferrer" class="blog-callout-link">
+                                            "Read on Medium ↗"
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <article class="project-description blog-body" inner_html=b.content_html></article>
+
+                                <div class="project-actions" style="margin-top: 40px;">
+                                    <A href="/#writing" attr:class="btn">
+                                        "← All Writing"
+                                    </A>
+                                    <a
+                                        href=b.medium_url
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="btn"
+                                    >
+                                        "Discuss on Medium ↗"
+                                    </a>
+                                </div>
+                            </div>
+                        }.into_any()
+                    }
+                    None => view! { <NotFound/> }.into_any(),
+                }
+            }}
+        </section>
     }
 }

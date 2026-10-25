@@ -77,3 +77,11 @@
   - Notes authored locally in Obsidian with Markdown and LaTeX formatting, then published as uniform PDFs.
   - Course-level subject categorization for systematic syllabus tracking.
   - Built-in PDF reader with an interactive comment and discussion section at the bottom of each document for student collaboration.
+
+## Writing & Articles
+
+### My First FOSS Event: IndiaFOSS ‘26
+- URL: https://sagarhutagi.com/blog/my-first-foss-event-indiafoss-26
+- Medium: https://medium.com/@sagarmh6364/my-first-foss-event-indiafoss-26-1271809c0335
+- Published: October 2, 2026
+- Summary: A personal account and reflection on attending IndiaFOSS '26 at NIMHANS Convention Centre in Bengaluru. Covers open-source hardware demonstrations (ChipWhisperer AES key extraction, custom stream decks, Flipper Zero), meeting Kailash Nadh (CTO of Zerodha), and networking with the broader FOSS community.
