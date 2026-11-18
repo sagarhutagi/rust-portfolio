@@ -5,7 +5,7 @@
 - Website: https://sagarhutagi.tech
 - GitHub: https://github.com/sagarhutagi
 - LinkedIn: https://linkedin.com/in/sagarhutagi
-- Contact: sagarhutagi@gmail.com
+- Contact: sagarmh6364@gmail.com
 
 ## Core Skills & Expertise
 - Languages: Rust, Python, TypeScript, JavaScript, SQL

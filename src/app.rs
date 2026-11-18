@@ -14,7 +14,7 @@ const GITHUB_URL: &str = "https://github.com/sagarhutagi";
 const GITHUB_HANDLE: &str = "sagarhutagi";
 const LINKEDIN_URL: &str = "https://linkedin.com/in/sagarhutagi";
 const LINKEDIN_HANDLE: &str = "/in/sagarhutagi";
-const EMAIL: &str = "sagarhutagi@gmail.com";
+const EMAIL: &str = "sagarmh6364@gmail.com";
 const _RESUME_URL: &str =
     "https://drive.google.com/file/d/1W_GuzvKKbIJEHw4Qs9iy-xjm6i8vybdh/view?usp=sharing";
 
@@ -54,6 +54,7 @@ pub struct BlogPost {
     pub read_time: &'static str,
     pub summary: &'static str,
     pub medium_url: &'static str,
+    #[allow(dead_code)]
     pub tags: &'static [&'static str],
     pub content_html: &'static str,
 }
@@ -127,6 +128,7 @@ pub struct Project {
     pub description: &'static str,
     pub live_url: Option<&'static str>,
     pub code_url: Option<&'static str>,
+    #[allow(dead_code)]
     pub tags: &'static [&'static str],
     pub images: &'static [&'static str],
 }
@@ -410,11 +412,7 @@ pub fn App() -> impl IntoView {
             view! {
                 <div class="toast-wrapper" role="status" aria-live="polite">
                     <div class="toast-card">
-                        <svg class="toast-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="12" y1="16" x2="12" y2="12"></line>
-                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                        </svg>
+                        <span class="toast-badge">"NOTE"</span>
                         <span class="toast-text">{msg}</span>
                         <button
                             type="button"
@@ -422,7 +420,7 @@ pub fn App() -> impl IntoView {
                             aria-label="Close notification"
                             on:click=move |_| set_toast.set(None)
                         >
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
                                 <line x1="18" y1="6" x2="6" y2="18"></line>
                                 <line x1="6" y1="6" x2="18" y2="18"></line>
                             </svg>
@@ -514,12 +512,6 @@ fn Home() -> impl IntoView {
                             <A href=href attr:class="project">
                                 <h2>{p.title}</h2>
                                 <p>{p.summary}</p>
-                                {(!p.tags.is_empty())
-                                    .then(|| view! { 
-                                        <div class="project-tags">
-                                            {p.tags.iter().map(|t| view! { <span class="tag">{*t}</span> }).collect_view()}
-                                        </div> 
-                                    })}
                             </A>
                         }
                     })
@@ -542,9 +534,6 @@ fn Home() -> impl IntoView {
                                     <span class="project-meta-date">{b.date}</span>
                                 </div>
                                 <p>{b.summary}</p>
-                                <div class="project-tags">
-                                    {b.tags.iter().map(|t| view! { <span class="tag">{*t}</span> }).collect_view()}
-                                </div>
                             </A>
                         }
                     })
@@ -636,13 +625,6 @@ fn ProjectPage() -> impl IntoView {
                                 </div>
                                 
                                 <h1>{p.title}</h1>
-                                
-                                {(!p.tags.is_empty())
-                                    .then(|| view! { 
-                                        <div class="project-tags center-tags">
-                                            {p.tags.iter().map(|t| view! { <span class="tag">{*t}</span> }).collect_view()}
-                                        </div> 
-                                    })}
                                 
                                 <div class="project-description" inner_html={p.description}></div>
                                 
@@ -841,10 +823,6 @@ fn BlogPage() -> impl IntoView {
                                     </div>
 
                                     <h1>{b.title}</h1>
-
-                                    <div class="project-tags center-tags">
-                                        {b.tags.iter().map(|t| view! { <span class="tag">{*t}</span> }).collect_view()}
-                                    </div>
 
                                     <div class="blog-callout">
                                         <span>"Originally published on Medium"</span>
